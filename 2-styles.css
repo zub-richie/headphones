@@ -1,0 +1,528 @@
+/* SUMMARY
+    1. GLOBAL
+    2. LAYOUT
+    3. SECTION
+    4. CARD
+*/
+
+/*** 1. GLOBAL ***/
+
+/* Reset / Normalize   ============================= */
+
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}
+
+/* Variables   ============================= */
+
+:root {
+--color-primary: #FF6565;
+--color-black: #071629;
+--color-white: #ffffff;
+--color-grey: #a0a0a0;
+--color-light-grey: #f3f3f3;
+--color-dark-grey: #353535;
+
+--text-color: var(--color-black);
+
+--font-family-base: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+--font-family-title: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+--font-size-small: 1.2rem;
+--font-size-medium: 1.6rem;
+--font-size-large: 1.8rem;
+--font-size-x-large: 2.3rem;
+--font-size-xx-large: 4.8rem;
+
+--font-weight-regular: 400;
+--font-weight-bold: 700;
+
+--line-height-small: 1.2;
+--line-height-base: 1.5;
+--line-height-big: 1.8;
+
+/** SECTION **/
+--section-padding: 5rem 0;
+--section-header-padding: 0 0 3rem;
+--section-header-align: center;
+--section-title-font-size: var(--font-size-xx-large);
+--section-title-font-weight: var(--font-weight-bold);
+--section-title-line-height: var(--line-height-small);
+--section-title-margin: 0;
+--section-title-color: var(--color-black);
+--section-tagline-transform: uppercase;
+--section-tagline-color: var(--color-primary);
+--section-tagline-font-family: var(--font-family-headings);
+--section-tagline-font-weight: var(--font-weight-bold);
+--section-tagline-margin: 0;
+--section-body-padding: 2rem 0 4rem;
+--section-footer-padding: 3rem 0 0;
+--section-footer-align: center;
+
+/** HEADER **/
+--header-padding: 4rem 0 0;
+
+
+/** FOOTER **/
+--footer-padding: 5rem 0 1rem;
+
+/** NAVBAR **/
+--nav-item-font-family: var(--font-family-headings);
+--nav-item-font-weight: var(--font-weight-bold);
+--nav-item-font-size: var(--font-size-medium);
+--nav-item-letter-spacing: .04rem;
+--nav-item-display: inline-block;
+--nav-item-margin: 0 0 0 2rem;
+--nav-item-link-hover: var(--color-primary);
+
+/** BUTTON **/
+--button-display: inline-block;
+--button-padding: 1.5rem 3rem;
+--button-border: var(--color-primary) solid 0.2rem;
+--button-color: var(--color-primary);
+--button-text-decoration: none;
+--button-font-size: var(--font-size-large);
+--button-hover-text-decoration: none;
+--button-hover-background: var(--color-primary);
+
+/** MOTION **/
+--transition-duration: .3s;
+--transition-cubic-bezier: cubic-bezier(0.17, 0.67, 0, 1.01);
+}
+
+/* Base
+  ============================= */
+
+*, *:before, *:after {
+box-sizing: border-box;
+}
+
+html {
+scroll-behavior: smooth;
+font-size: 62.5%;
+}
+
+body {
+color: var(--text-color);
+font-family: var(--font-family-base);
+font-size: var(--font-size-medium);
+font-weight: var(--font-weight-regular);
+line-height: var(--line-height-base);
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-family: var(--font-family-title);
+font-weight: var(--font-weight-bold);
+}
+
+a {
+color: var(--text-color);
+text-decoration: none;
+}
+
+a:visited {
+font-style: italic;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+a:active {
+background-color: var(--color-light-grey);
+}
+
+.button {
+display: var(--button-display);
+padding: var(--button-padding);
+border: var(--button-border);
+font-size: var(--button-font-size);
+text-decoration: var(--button-text-decoration);
+border-top-left-radius: 30px;
+border-top-right-radius: 30px;
+border-bottom-right-radius: 30px;
+border-bottom-left-radius: 30px;
+background-color: var(--button-color);
+color: var(--color-white);
+margin-top: 20px;
+margin-bottom: 50px;
+}
+
+.button:hover {
+color: var(--button-hover-color);
+text-decoration: var(--button-hover-text-decoration);
+background: var(--button-hover-background);
+transition-duration: var(--transition-duration);
+}
+
+/* Helpers
+  ============================= */
+
+.visually-hidden:not(:focus):not(:active) {
+position: absolute !important;
+height: 1px;
+width: 1px;
+overflow: hidden;
+clip: rect(1px, 1px, 1px, 1px);
+white-space: nowrap;
+}
+/** icons start */
+@font-face {
+    font-family: 'holberton_school-icon';
+    src:  url('fonts/holberton_school-icon.eot?sq4eq4');
+    src:  url('fonts/holberton_school-icon.eot?sq4eq4#iefix') format('embedded-opentype'),
+      url('fonts/holberton_school-icon.ttf?sq4eq4') format('truetype'),
+      url('fonts/holberton_school-icon.woff?sq4eq4') format('woff'),
+      url('fonts/holberton_school-icon.svg?sq4eq4#holberton_school-icon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="holberton_school-icon-"], [class*=" holberton_school-icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'holberton_school-icon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .holberton_school-icon-arrow_1:before {
+    content: "\e900";
+  }
+  .holberton_school-icon-arrow_2:before {
+    content: "\e901";
+  }
+  .holberton_school-icon-arrow_3:before {
+    content: "\e902";
+  }
+  .holberton_school-icon-arrow_4:before {
+    content: "\e903";
+  }
+  .holberton_school-icon-arrow_5:before {
+    content: "\e904";
+  }
+  .holberton_school-icon-check:before {
+    content: "\e905";
+  }
+  .holberton_school-icon-ic_bag:before {
+    content: "\e906";
+  }
+  .holberton_school-icon-ic_cart:before {
+    content: "\e907";
+  }
+  .holberton_school-icon-ic_facebook:before {
+    content: "\e908";
+  }
+  .holberton_school-icon-ic_hearing:before {
+    content: "\e909";
+  }
+  .holberton_school-icon-ic_instagram:before {
+    content: "\e90a";
+  }
+  .holberton_school-icon-ic_laptop:before {
+    content: "\e90b";
+  }
+  .holberton_school-icon-ic_money:before {
+    content: "\e90c";
+  }
+  .holberton_school-icon-ic_music:before {
+    content: "\e90d";
+  }
+  .holberton_school-icon-ic_sound:before {
+    content: "\e90e";
+  }
+  .holberton_school-icon-ic_twitter:before {
+    content: "\e90f";
+  }
+  .holberton_school-icon-ic_video:before {
+    content: "\e910";
+  }
+  .holberton_school-icon-menu:before {
+    content: "\e911";
+  }
+  .holberton_school-icon-search_1:before {
+    content: "\e912";
+  }
+  .holberton_school-icon-search_2:before {
+    content: "\e913";
+  }
+  .holberton_school-icon-star:before {
+    content: "\e914";
+  }
+
+/*navigation*/
+nav {
+    background: transparent;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+label.logo {
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    /*padding: 0 100px;*/
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+nav ul li {
+    display: inline-block;
+    line-height: 80px;
+}
+
+nav ul li a {
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+a.active,a:hover {
+    transition: .5s;
+}
+.checkbtn {
+    font-size: 30px;
+    color: white;
+    float: left;
+    margin: 20px;
+    cursor: pointer;
+    display: none;
+}
+.closebtn{
+  font-size: 30px;
+    color: white;
+    float: left;
+    margin: 20px;
+    cursor: pointer;
+    display: none;
+}
+#check {
+    display: none;
+}
+
+
+/**Section*/
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  }
+  
+.section-container {
+    display: flex;
+    justify-content: center;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  .section-body {
+    display: flex;
+    max-width: 800px;
+  }
+  
+  section.section-inner {
+    padding: 20px;
+  }
+
+  .hero-section {
+    background-image: url(images/headphones_hero_1.jpg);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #010101;
+    padding: 270px 0;
+    margin-top: -80px;
+    display: flex;
+  }
+  
+  .section-title {
+    color:var(--color-black);
+    text-align: center;
+  }
+  h1.section-title {
+    color: var(--color-white);
+  }
+  
+  .hero-section p {
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  .section-inner .button {
+    text-align: center;
+  }
+
+/*What we do section*/
+.row {
+  display: flex;
+}
+ul.row {
+  margin: -1trm;
+  padding: 0;
+  list-style: none;
+  padding-top: 50px;
+}
+.icon {
+  color: #FF6565;
+  font-size: 95px;
+}
+span.holberton_school-icon-menu {
+  color: white;
+  font-size: 25px;
+  
+}
+
+.service-section {
+  padding: 50px;
+}
+/*Result Section*/
+.result-section {
+  background-image: url(images/headphones_hero_2.jpg);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #010101;
+  padding: 50px 50px;
+  display: flex;
+}
+.section-body.result {
+  display: flex;
+  max-width: 800px;
+  justify-content: center;
+  
+}
+h2.section-title.result {
+  color: var(--color-white);
+}
+p.result {
+  color: var(--color-white);
+}
+li.col-1-3.result {
+  background-image: url(images/pentagone.png);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 35px;
+}
+h3.result {
+  font-size: 50px;
+  line-height: -0px;
+  color: var(--color-white);
+  margin-top: 20px;
+}
+p#result {
+  color: var(--color-white);
+  font-size: 12px;
+}
+ul.row.result {
+  gap: 20px;
+}
+/*media screen*/
+@media (max-width: 1000px){
+    .label.logo {
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    nav ul li a {
+        font-size: 16px;
+
+    }
+    
+}
+@media (max-width: 768px) {
+
+    label.logo {
+        display: flex;
+        justify-content: center;
+        padding-left: 50px;
+    }
+    li.col-1-3 {
+      width: 50%;
+    }
+  ul.row {
+    flex-wrap: wrap;   
+  }
+  li.col-1-3.result {
+    width: 50%;
+    margin-top: 50px;
+  }
+  ul.row.result {
+    gap: 0px;
+  }
+}
+@media (max-width: 622px) {
+  .checkbtn {
+    display: block;
+}
+nav {
+  justify-content: flex-start;
+  gap: 55px;
+}
+nav ul {
+    flex-direction: column;
+    justify-content: flex-start;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: transparent;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+}
+nav ul li {
+    display: block;
+    margin: 0 auto;
+    line-height: 50px;
+}
+nav ul li a {
+    font-size: 20px;
+}
+a:hover,a.active {
+    background: none;
+    color:#FF6565;
+}
+#check:checked ~ ul {
+    left: 0;
+}
+
+label.closebtn {
+  display: none;
+}
+#check:checked ~ label.closebtn {
+  display: block;
+}
+#check:checked ~ label.checkbtn {
+  display: none;
+}
+    li.col-1-3 {
+    width: 100%;
+}
+li.col-1-3.result {
+  width: 100%;
+}
+
+ 
